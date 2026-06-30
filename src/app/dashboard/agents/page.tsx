@@ -26,23 +26,27 @@ interface Workflow {
 const WORKFLOW_TYPES = [
   {
     value: "invoice_reconciliation",
-    label: "Invoice Reconciliation",
-    description: "Match invoices against purchase orders and flag discrepancies",
+    label: "🔄 Invoice Reconciliation",
+    description:
+      "Compare your invoices against purchase orders. Flags mismatched amounts, wrong dates, and missing items.",
   },
   {
     value: "shipment_matching",
-    label: "Shipment Matching",
-    description: "Cross-reference shipping documents with inventory records",
+    label: "🚢 Shipment Matching",
+    description:
+      "Check shipping documents against your inventory. Find shortages and discrepancies before they become problems.",
   },
   {
     value: "erp_sync",
-    label: "ERP Sync",
-    description: "Synchronize data across enterprise resource planning systems",
+    label: "📊 ERP Sync",
+    description:
+      "Pull data from your documents and prepare it for import into your ERP or accounting system.",
   },
   {
     value: "customs_verification",
-    label: "Customs Verification",
-    description: "Validate customs declarations against trade regulations",
+    label: "🛃 Customs Verification",
+    description:
+      "Validate HS codes, check certificates of origin, and score compliance risk before goods reach the border.",
   },
 ];
 
@@ -112,16 +116,16 @@ export default function AgentsPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold">Agent Workflows</h1>
+        <h1 className="text-2xl font-bold">Run Automations</h1>
         <p className="text-neutral-400 text-sm mt-1">
-          Run multi-step AI workflows for trade document processing and
-          reconciliation.
+          Pick a task below and let AI handle it. Each automation runs multiple
+          steps automatically and shows you the results.
         </p>
       </div>
 
       <div className="border border-neutral-800 rounded-lg p-6 mb-10">
         <h2 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-4">
-          New Workflow
+          What do you want to automate?
         </h2>
         <div className="grid sm:grid-cols-2 gap-3 mb-4">
           {WORKFLOW_TYPES.map((wt) => (

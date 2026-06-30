@@ -18,16 +18,37 @@ export default async function DashboardLayout({
     <div className="flex-1 flex bg-black text-white min-h-screen">
       <aside className="w-56 border-r border-neutral-800 flex flex-col shrink-0">
         <div className="px-5 py-5 border-b border-neutral-800">
-          <Link href="/dashboard" className="text-lg font-semibold tracking-tight">
+          <Link
+            href="/dashboard"
+            className="text-lg font-semibold tracking-tight"
+          >
             nexus
           </Link>
         </div>
 
         <nav className="flex-1 px-3 py-4 space-y-1">
-          <NavLink href="/dashboard" label="Overview" icon="grid" />
-          <NavLink href="/dashboard/utilities" label="Utilities" icon="doc" />
-          <NavLink href="/dashboard/agents" label="Agents" icon="cpu" />
-          <NavLink href="/dashboard/ledger" label="Ledger" icon="ledger" />
+          <NavLink href="/dashboard" label="Home" icon="🏠" />
+          <NavLink
+            href="/dashboard/utilities"
+            label="Upload Documents"
+            icon="📄"
+          />
+          <NavLink
+            href="/dashboard/agents"
+            label="Run Automations"
+            icon="🤖"
+          />
+          <NavLink href="/dashboard/ledger" label="Usage & Credits" icon="💳" />
+
+          <div className="pt-4 pb-2">
+            <p className="px-3 text-[10px] font-semibold text-neutral-600 uppercase tracking-widest">
+              Settings
+            </p>
+          </div>
+          <NavLink href="/dashboard/keys" label="API Keys" icon="🔑" />
+          <NavLink href="/dashboard/team" label="Team" icon="👥" />
+          <NavLink href="/dashboard/webhooks" label="Webhooks" icon="🔗" />
+          <NavLink href="/dashboard/settings" label="Settings" icon="⚙️" />
         </nav>
 
         <div className="px-4 py-4 border-t border-neutral-800">
@@ -54,19 +75,12 @@ function NavLink({
   label: string;
   icon: string;
 }) {
-  const icons: Record<string, string> = {
-    grid: "⊞",
-    doc: "⊡",
-    cpu: "◈",
-    ledger: "☰",
-  };
-
   return (
     <Link
       href={href}
       className="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-neutral-400 hover:text-white hover:bg-neutral-800/50 transition-colors"
     >
-      <span className="text-base opacity-60">{icons[icon]}</span>
+      <span className="text-sm">{icon}</span>
       {label}
     </Link>
   );

@@ -3,9 +3,8 @@
   "configurations": [
     {
       "name": "nexus-dev",
-      "cwd": "E:\\Github Project\\nexus",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev"],
       "port": 3000
     }
   ]

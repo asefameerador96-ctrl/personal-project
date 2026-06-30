@@ -67,11 +67,12 @@ export default function UtilitiesPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-4">
         <div>
-          <h1 className="text-2xl font-bold">Document Parser</h1>
+          <h1 className="text-2xl font-bold">Upload Documents</h1>
           <p className="text-neutral-400 text-sm mt-1">
-            Upload a PDF, CSV, or TXT file to extract structured data instantly.
+            Upload any invoice, packing list, or trade document. We&apos;ll extract
+            all the data and give it back to you as clean, structured JSON.
           </p>
         </div>
         {creditsRemaining !== null && (
@@ -79,6 +80,13 @@ export default function UtilitiesPage() {
             {creditsRemaining.toLocaleString()} credits
           </span>
         )}
+      </div>
+
+      <div className="flex gap-3 mb-8 text-xs text-neutral-500">
+        <span className="bg-neutral-900 px-2.5 py-1 rounded">📄 PDF invoices</span>
+        <span className="bg-neutral-900 px-2.5 py-1 rounded">📊 CSV spreadsheets</span>
+        <span className="bg-neutral-900 px-2.5 py-1 rounded">📝 Text files</span>
+        <span className="bg-neutral-900 px-2.5 py-1 rounded">Max 10MB</span>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -157,7 +165,12 @@ export default function UtilitiesPage() {
       {result && (
         <div className="mt-10">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold">Parsed Output</h2>
+            <div>
+              <h2 className="text-lg font-semibold">✅ Extracted Data</h2>
+              <p className="text-xs text-neutral-500 mt-0.5">
+                Here&apos;s everything we found in your document. You can download this as JSON.
+              </p>
+            </div>
             <button
               onClick={() => {
                 const blob = new Blob(
